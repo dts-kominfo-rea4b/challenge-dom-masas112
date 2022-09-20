@@ -30,7 +30,7 @@
       color: black;
     }
 
-    #subtitle {
+    #todo-subtitle {
       font-family: 'baskerville old face';
       font-size: 14px;
       text-align: center;
@@ -65,7 +65,7 @@
     <div class="header" id="todo-title">
       <p>To-Do-List</p>
     </div>
-    <div id="subtitle">
+    <div id="todo-subtitle">
       <p>~ Today I need to ~</p>
     </div>
     <div class="input">
@@ -99,6 +99,7 @@
     function fnClickHandler(toDoItem) {
       let li = document.createElement('li');
       li.textContent = toDoItem;
+      input.value = "";
       return li;
     }
 
@@ -108,7 +109,7 @@
     });
     // TODO: register event onclick / addEventListener untuk button
     // akan menjalankan fungsi fnClickHandler
-    input.addEventListener('keydown', (event) => {
+    input.addEventListener('keypress', (event) => {
       if (event.key == 'Enter') {
         const isi = input.value;
         output.append(fnClickHandler(isi));
